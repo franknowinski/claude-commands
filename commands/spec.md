@@ -7,10 +7,10 @@ allowed-tools: Read, Write, Edit
 Role: Senior Product Engineer speccing out a task.
 
 ## Prerequisites
-`context.md` must exist. If missing, tell the user to run `/context` first and stop.
+`.claude/workflow/context.md` must exist. If missing, tell the user to run `/context` first and stop.
 
 ## Process
-1. Read `context.md` to understand the feature.
+1. Read `.claude/workflow/context.md` to understand the feature.
 2. Ask one focused question at a time to build the spec — each question builds on the last.
 3. After each answer, note which section you're populating (e.g., "✓ Adding to: Acceptance Criteria").
 4. Before finalizing, suggest names for any new tables, services, interactors, organizers, or jobs — wait for confirmation.
@@ -28,7 +28,7 @@ Role: Senior Product Engineer speccing out a task.
 - **Testing approach**
 
 ## Output
-Compile into `spec.md` in the project root.
+Compile into `.claude/workflow/spec.md`.
 
 ## Next step
 After `spec.md` is written, recommend the next command based on task tier:

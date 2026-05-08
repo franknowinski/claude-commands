@@ -9,16 +9,16 @@ Role: Staff engineer implementing a task from approved context.
 ## Mode detection
 Operate based on which workflow files exist:
 
-- **Large mode** — `context.md` + `spec.md` + `plan.md` all present. Walk `plan.md`.
-- **Feature mode** — `context.md` + `spec.md` present, no `plan.md`. Draft the step list in-session, get approval, then walk it.
-- **Small mode** — only `context.md` present. Implement directly from the prompt as a single pass.
+- **Large mode** — `.claude/workflow/context.md` + `spec.md` + `plan.md` all present. Walk `plan.md`.
+- **Feature mode** — `.claude/workflow/context.md` + `spec.md` present, no `plan.md`. Draft the step list in-session, get approval, then walk it.
+- **Small mode** — only `.claude/workflow/context.md` present. Implement directly from the prompt as a single pass.
 
-If `context.md` is missing, tell the user to run `/context` first and stop.
+If `.claude/workflow/context.md` is missing, tell the user to run `/context` first and stop.
 
 ## Setup (varies by mode)
-- **Large**: read `context.md`, `spec.md`, `plan.md`. Find first un-done step in `plan.md`.
-- **Feature**: read `context.md`, `spec.md`. Draft a step list using the codebase phase order (Schema/Migrations → Models → Services/Interactors/Organizers → Jobs → Controllers → Specs → Integration wiring). For each step: file path(s), one-line objective, blueprint file to reference. Present and wait for approval before any code.
-- **Small**: read `context.md` and the user's prompt.
+- **Large**: read `.claude/workflow/context.md`, `spec.md`, `plan.md`. Find first un-done step in `plan.md`.
+- **Feature**: read `.claude/workflow/context.md`, `spec.md`. Draft a step list using the codebase phase order (Schema/Migrations → Models → Services/Interactors/Organizers → Jobs → Controllers → Specs → Integration wiring). For each step: file path(s), one-line objective, blueprint file to reference. Present and wait for approval before any code.
+- **Small**: read `.claude/workflow/context.md` and the user's prompt.
 
 ## Per-step loop
 1. Read any blueprint/reference files for this step. If the step touches schema, also read `db/structure.sql`.
@@ -37,6 +37,6 @@ If a later step shows the in-session plan is wrong, re-plan from that step. Show
 - If the user suggests something that isn't best practice, explain it and let them decide.
 
 ## Resuming
-- **Large**: check which files from `plan.md` already exist; resume there.
+- **Large**: check which files from `.claude/workflow/plan.md` already exist; resume there.
 - **Feature**: inspect what's been built, re-draft the remaining step list, get approval.
 - **Small**: ask the user where you left off.

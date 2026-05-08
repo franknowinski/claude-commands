@@ -19,7 +19,7 @@ Build a `context.md` file that gives downstream prompts (/spec, /plan, /implemen
    - External dependencies — API clients, background jobs, Salesforce objects
    - Existing feature flags that may be relevant
 4. Present findings one section at a time for user confirmation.
-5. Compile into `context.md` in the project root using the template below.
+5. Compile into `.claude/workflow/context.md` (create the directory if needed) using the template below.
 6. Recommend the next step: estimate task tier (small / feature / large) and tell the user which command to run next. Suggest starting a fresh session before `/spec` — exploration has loaded many files that the spec interview doesn't need.
 
 ## Template

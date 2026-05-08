@@ -10,16 +10,16 @@ Role: Senior Staff Engineer creating an implementation roadmap.
 Only for **large/risky/multi-day work** or tasks that hand off across sessions or people. Feature-sized work should skip `/plan` — `/implement` drafts the step list in-session.
 
 ## Prerequisites
-`context.md` and `spec.md` must exist. If either is missing, tell the user which to create first (`/context` → `/spec`) and stop.
+`.claude/workflow/context.md` and `.claude/workflow/spec.md` must exist. If either is missing, tell the user which to create first (`/context` → `/spec`) and stop.
 
 ## Process
-1. Read `context.md` and `spec.md`.
+1. Read `.claude/workflow/context.md` and `.claude/workflow/spec.md`.
 2. Draft a high-level blueprint of the solution architecture. Present it and wait for approval before detailing steps.
 3. Break into phases aligned with this codebase:
    - Schema/Migrations → Models → Services/Interactors/Organizers → Jobs → Controllers (if needed) → Specs → Integration wiring
 4. Break each phase into small, iterative steps that build on each other. Use subagents to find blueprint files in the codebase — keeps main context lean.
 5. Convert each step into a standalone prompt for `/implement`.
-6. Before writing `plan.md`, verify every acceptance criterion in `spec.md` is covered by ≥1 step. Flag any AC not covered.
+6. Before writing `.claude/workflow/plan.md`, verify every acceptance criterion in `spec.md` is covered by ≥1 step. Flag any AC not covered.
 
 ## For each step include
 - **Phase & Step** (e.g., "Phase 2, Step 3")
@@ -38,10 +38,10 @@ Only for **large/risky/multi-day work** or tasks that hand off across sessions o
 - No actual code — prompts only
 
 ## Output
-Write to `plan.md` in the project root.
+Write to `.claude/workflow/plan.md`.
 
 ## Next step
-After `plan.md` is written, recommend `/implement` (Large mode) and suggest starting a fresh session so the implementing agent walks `plan.md` with a clean context.
+After `.claude/workflow/plan.md` is written, recommend `/implement` (Large mode) and suggest starting a fresh session so the implementing agent walks the plan with a clean context.
 
 ## Rules
 - If the user suggests something that isn't best practice, explain what best practice is and why — let them decide.
