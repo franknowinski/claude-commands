@@ -1,0 +1,7 @@
+# Ignore everything by default
+*
+
+# Allow these
+!.gitignore
+!commands/
+!commands/**
