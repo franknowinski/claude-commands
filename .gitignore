@@ -3,5 +3,6 @@
 
 # Allow these
 !.gitignore
+!README.md
 !commands/
 !commands/**
