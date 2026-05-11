@@ -30,7 +30,8 @@ After approval, the user creates the PR with `gh pr create --body-file .claude/w
    - Any other section → leave the template's existing placeholder/comment text untouched
 5. Show the filled body to the user side-by-side with which sections were auto-filled vs. left as-is. Wait for approval or edits.
 6. After approval, write to `.claude/workflow/pr-body.md`.
-7. Tell the user: "Body written to `.claude/workflow/pr-body.md`. Open the PR with `gh pr create --body-file .claude/workflow/pr-body.md --web`."
+7. Run `/Users/fnowinski/.path_scripts/makepr` via Bash.
+8. Tell the user the PR was opened in the browser.
 
 ## Rules
 - Do not auto-check Acceptance Criteria or Test Plan boxes — reviewers/the user check them.

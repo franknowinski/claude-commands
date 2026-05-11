@@ -20,7 +20,15 @@ Build a `context.md` file that gives downstream prompts (/spec, /plan, /implemen
    - Existing feature flags that may be relevant
 4. Present findings one section at a time for user confirmation.
 5. Compile into `.claude/workflow/context.md` (create the directory if needed) using the template below.
-6. Recommend the next step: estimate task tier (small / feature / large) and tell the user which command to run next. Suggest starting a fresh session before `/spec` — exploration has loaded many files that the spec interview doesn't need.
+6. Estimate task tier (small / feature / large) based on findings. Present your recommendation with reasoning and let the user confirm or override.
+7. **If Small** — run a brief inline spec interview, one question at a time, covering:
+   - Acceptance criteria
+   - Scope boundaries (what's explicitly out)
+   - Top 2–3 edge cases
+   - Observability — any `add_meta` or `ReportCustomEvent` needed
+   - Testing approach (which spec files to write)
+   Write `.claude/workflow/spec.md` with these sections. Recommend `/implement` next — no fresh session needed, context is already loaded.
+8. **If Feature or Large** — recommend a fresh session before `/spec` (exploration loaded files the spec interview doesn't need). For Large, mention `/plan` follows `/spec`.
 
 ## Template
 

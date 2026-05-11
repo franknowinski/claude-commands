@@ -3,7 +3,7 @@
 Slash commands for [Claude Code](https://claude.com/claude-code) that turn ad-hoc work into a repeatable pipeline:
 
 ```
-Small task   → /context → /implement
+Small task   → /context (inline spec) → /implement
 Feature      → /context → /spec → /implement
 Large/risky  → /context → /spec → /plan → /implement
 Open the PR  → /pr → gh pr create
@@ -31,7 +31,7 @@ Add this to your repo's `.gitignore` so workflow files don't get committed:
 
 | Command | Writes | Purpose |
 |---|---|---|
-| `/context` | `.claude/workflow/context.md` | Pull the ticket, explore the codebase in parallel subagents |
+| `/context` | `context.md` (+ `spec.md` on Small tier) | Pull the ticket, explore the codebase in parallel subagents; on Small tier, also runs an inline spec interview |
 | `/spec` | `.claude/workflow/spec.md` | Interview-driven spec: acceptance criteria, scope, edge cases |
 | `/plan` | `.claude/workflow/plan.md` | Break large work into a step-by-step roadmap |
 | `/implement` | code | Walks the work; auto-detects mode by which files exist |
@@ -80,7 +80,7 @@ gh pr create --body-file .claude/workflow/pr-body.md --web
 # → opens the GitHub web UI with the body pre-filled
 ```
 
-For a Small task (one-line fix), skip `/spec` and go `/context → /implement`.
+For a Small task (one-line fix), `/context` runs an inline spec interview and writes both files — go straight to `/implement` after, no fresh session needed.
 For a Large task (multi-day, multi-service), add `/plan` between `/spec` and `/implement`.
 
 ## Authoring your own command
