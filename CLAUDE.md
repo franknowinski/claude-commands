@@ -3,6 +3,8 @@
 - Never push to remote or rebase. The user handles all git push and rebase operations.
 - Ask one question at a time. If requirements are ambiguous, present options and let me choose — don't guess.
 - When working in /Users/fnowinski/Projects/glue, read /Users/fnowinski/.claude/projects/-Users-fnowinski-Projects-glue/CLAUDE.md for additional project context.
+- When creating PRs, always read `.github/pull_request_template.md` first (if it exists) and use it as the basis for the `--body` content
+passed to `gh pr create`.
 
 # Scope Discipline
 - Don't add features, refactoring, or abstractions beyond what I asked for. If you spot something worth changing, mention it — don't do it.
